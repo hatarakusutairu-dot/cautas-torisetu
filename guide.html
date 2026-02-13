@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>使い方ガイド - かうたす</title>
+  <meta name="description" content="かうたすの使い方をステップバイステップで解説。アカウント登録から各機能の操作方法まで、初めての方でも迷わず使いこなせます。">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10b981',
+            'primary-dark': '#059669',
+            'primary-light': '#34d399',
+            'primary-50': '#ecfdf5',
+            'primary-100': '#d1fae5',
+          },
+          fontFamily: {
+            sans: ['Noto Sans JP', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .step-line {
+      position: absolute;
+      left: 23px;
+      top: 48px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #10b981 0%, #d1fae5 100%);
+    }
+
+    .step-dot {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
+    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-bold text-primary-dark">
+        かうたす
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="features.html" class="text-gray-600 hover:text-primary font-medium transition">機能</a>
+        <a href="guide.html" class="text-primary font-medium">使い方</a>
+        <a href="index.html#pricing" class="text-gray-600 hover:text-primary font-medium transition">料金</a>
+        <a href="index.html#faq" class="text-gray-600 hover:text-primary font-medium transition">FAQ</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="https://cautas.pages.dev" class="hidden sm:block text-primary-dark font-medium hover:text-primary transition">
+          ログイン
+        </a>
+        <a href="https://cautas.pages.dev" class="btn-primary text-white px-5 py-2.5 rounded-full font-medium text-sm">
+          無料で始める
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 bg-gradient-to-b from-primary-50 to-white">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        <span class="gradient-text">使い方ガイド</span>
+      </h1>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        はじめての方でも迷わず使いこなせるよう、<br class="hidden md:block">
+        ステップバイステップで解説します。
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="py-8 bg-white border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="#start" class="px-4 py-2 bg-primary-50 text-primary-dark rounded-full text-sm font-medium hover:bg-primary-100 transition">はじめ方</a>
+        <a href="#calendar-guide" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">予定を追加</a>
+        <a href="#client-guide" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">クライアント登録</a>
+        <a href="#karte-guide" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">カルテ作成</a>
+        <a href="#goal-guide" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">目標設定</a>
+        <a href="#tips" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-200 transition">活用のコツ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Getting Started -->
+  <section id="start" class="py-20 bg-white scroll-mt-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12 fade-up">
+        <span class="inline-block bg-primary-100 text-primary-dark px-4 py-1 rounded-full text-sm font-medium mb-4">STEP 1</span>
+        <h2 class="text-3xl font-bold mb-4">はじめ方</h2>
+        <p class="text-gray-600">アカウント登録から利用開始まで</p>
+      </div>
+
+      <div class="space-y-8 fade-up">
+        <!-- Step 1 -->
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0">1</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">アプリにアクセス</h3>
+            <p class="text-gray-600 mb-4">
+              下のボタンからかうたすにアクセスします。PC、タブレット、スマートフォンどれでもOKです。
+            </p>
+            <a href="https://cautas.pages.dev" class="inline-flex items-center gap-2 text-primary font-medium hover:text-primary-dark transition">
+              かうたすを開く
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0">2</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">アカウント登録</h3>
+            <p class="text-gray-600 mb-4">
+              「新規登録」をクリックし、メールアドレスとパスワードを入力します。Googleアカウントでの登録も可能です。
+            </p>
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p class="text-sm text-blue-700">登録は無料です。クレジットカードの登録も不要です。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative pl-16">
+          <div class="step-dot absolute left-0 top-0">3</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">ロビー（ダッシュボード）を確認</h3>
+            <p class="text-gray-600 mb-4">
+              ログインするとロビー画面が表示されます。ここから各機能にアクセスできます。左側のメニューから機能を選択してください。
+            </p>
+            <div class="bg-white rounded-xl border border-gray-200 p-4">
+              <p class="text-sm text-gray-600 mb-2">メニュー項目</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">ロビー</span>
+                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">カレンダー</span>
+                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">タスク</span>
+                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">クライアント</span>
+                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">カルテ</span>
+                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">目標</span>
+                <span class="px-3 py-1 bg-gray-100 rounded-full text-sm">請求書</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calendar Guide -->
+  <section id="calendar-guide" class="py-20 bg-gray-50 scroll-mt-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12 fade-up">
+        <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">STEP 2</span>
+        <h2 class="text-3xl font-bold mb-4">予定を追加する</h2>
+        <p class="text-gray-600">セッションの予約を登録しましょう</p>
+      </div>
+
+      <div class="space-y-8 fade-up">
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-blue-500 to-blue-600">1</div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <h3 class="text-xl font-bold mb-3">カレンダーを開く</h3>
+            <p class="text-gray-600">左メニューから「カレンダー」をクリック、またはロビーの「新規予定を追加」ボタンをクリックします。</p>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-blue-500 to-blue-600">2</div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <h3 class="text-xl font-bold mb-3">予定を入力</h3>
+            <p class="text-gray-600 mb-4">以下の項目を入力します。</p>
+            <table class="w-full text-sm">
+              <tbody>
+                <tr class="border-b border-gray-100">
+                  <td class="py-2 font-medium">タイトル</td>
+                  <td class="py-2 text-red-500">必須</td>
+                  <td class="py-2 text-gray-600">例：カウンセリング</td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="py-2 font-medium">日付</td>
+                  <td class="py-2 text-red-500">必須</td>
+                  <td class="py-2 text-gray-600">セッションの日付</td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="py-2 font-medium">開始・終了時刻</td>
+                  <td class="py-2 text-red-500">必須</td>
+                  <td class="py-2 text-gray-600">開始と終了の時間</td>
+                </tr>
+                <tr class="border-b border-gray-100">
+                  <td class="py-2 font-medium">クライアント</td>
+                  <td class="py-2 text-gray-400">任意</td>
+                  <td class="py-2 text-gray-600">登録済みから選択</td>
+                </tr>
+                <tr>
+                  <td class="py-2 font-medium">金額</td>
+                  <td class="py-2 text-gray-400">任意</td>
+                  <td class="py-2 text-gray-600">実績に自動反映</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-blue-500 to-blue-600">3</div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <h3 class="text-xl font-bold mb-3">保存</h3>
+            <p class="text-gray-600">「保存」ボタンをクリックして完了です。カレンダーに予定が表示されます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-yellow-50 border border-yellow-200 rounded-2xl p-6 fade-up">
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+          </svg>
+          <div>
+            <p class="font-bold text-yellow-800 mb-1">繰り返し予定を使おう</p>
+            <p class="text-yellow-700 text-sm">定期的なセッションは「繰り返し設定」を使うと、毎回登録する手間が省けます。毎週・隔週・毎月から選択できます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Guide -->
+  <section id="client-guide" class="py-20 bg-white scroll-mt-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12 fade-up">
+        <span class="inline-block bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm font-medium mb-4">STEP 3</span>
+        <h2 class="text-3xl font-bold mb-4">クライアントを登録する</h2>
+        <p class="text-gray-600">顧客情報を登録して一元管理</p>
+      </div>
+
+      <div class="space-y-8 fade-up">
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-purple-500 to-purple-600">1</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">クライアント画面を開く</h3>
+            <p class="text-gray-600">左メニューから「クライアント」をクリックします。</p>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-purple-500 to-purple-600">2</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">新規クライアントを追加</h3>
+            <p class="text-gray-600 mb-4">「新規クライアント」ボタンをクリックし、以下を入力します。</p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                名前（必須）
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                メールアドレス
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                電話番号
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                所属企業（任意）
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                メモ
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-purple-500 to-purple-600">3</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">登録完了</h3>
+            <p class="text-gray-600">保存すると、このクライアントを予定やカルテに紐づけられるようになります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Karte Guide -->
+  <section id="karte-guide" class="py-20 bg-gray-50 scroll-mt-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12 fade-up">
+        <span class="inline-block bg-orange-100 text-orange-700 px-4 py-1 rounded-full text-sm font-medium mb-4">STEP 4</span>
+        <h2 class="text-3xl font-bold mb-4">カルテを作成する</h2>
+        <p class="text-gray-600">セッションの記録を残しましょう</p>
+      </div>
+
+      <div class="space-y-8 fade-up">
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-orange-500 to-orange-600">1</div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <h3 class="text-xl font-bold mb-3">カルテ作成を開始</h3>
+            <p class="text-gray-600">ロビーの「カルテ作成」ボタン、または左メニュー「カルテ」から「新規作成」をクリックします。</p>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-orange-500 to-orange-600">2</div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <h3 class="text-xl font-bold mb-3">カルテを入力</h3>
+            <div class="space-y-4">
+              <div class="bg-orange-50 rounded-xl p-4">
+                <p class="font-medium text-orange-800 mb-1">クライアント（必須）</p>
+                <p class="text-sm text-orange-700">登録済みのクライアントから選択</p>
+              </div>
+              <div class="bg-orange-50 rounded-xl p-4">
+                <p class="font-medium text-orange-800 mb-1">セッション日（必須）</p>
+                <p class="text-sm text-orange-700">いつのセッションか</p>
+              </div>
+              <div class="bg-orange-50 rounded-xl p-4">
+                <p class="font-medium text-orange-800 mb-1">主訴・相談内容（必須）</p>
+                <p class="text-sm text-orange-700">クライアントが相談したいこと</p>
+              </div>
+              <div class="bg-gray-50 rounded-xl p-4">
+                <p class="font-medium text-gray-700 mb-1">セッション内容（任意）</p>
+                <p class="text-sm text-gray-600">実際に行った内容</p>
+              </div>
+              <div class="bg-gray-50 rounded-xl p-4">
+                <p class="font-medium text-gray-700 mb-1">所見・アセスメント（任意）</p>
+                <p class="text-sm text-gray-600">専門家としての評価・見立て</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-dot absolute left-0 top-0 bg-gradient-to-br from-orange-500 to-orange-600">3</div>
+          <div class="bg-white rounded-2xl p-6 shadow-sm">
+            <h3 class="text-xl font-bold mb-3">保存</h3>
+            <p class="text-gray-600">保存すると、クライアントの詳細画面からいつでも振り返れます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 bg-blue-50 border border-blue-200 rounded-2xl p-6 fade-up">
+        <div class="flex items-start gap-4">
+          <svg class="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+          <div>
+            <p class="font-bold text-blue-800 mb-1">セッション直後に記録しよう</p>
+            <p class="text-blue-700 text-sm">カルテはセッション終了後すぐに作成するのがおすすめ。詳細な内容を忘れないうちに残せます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goal Guide -->
+  <section id="goal-guide" class="py-20 bg-white scroll-mt-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12 fade-up">
+        <span class="inline-block bg-primary-100 text-primary-dark px-4 py-1 rounded-full text-sm font-medium mb-4">STEP 5</span>
+        <h2 class="text-3xl font-bold mb-4">目標を設定する</h2>
+        <p class="text-gray-600">AIのサポートで効果的な目標設計</p>
+      </div>
+
+      <div class="space-y-8 fade-up">
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0">1</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">目標画面を開く</h3>
+            <p class="text-gray-600">左メニューから「目標」をクリックします。</p>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0">2</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">目標を入力</h3>
+            <p class="text-gray-600 mb-4">クライアントと目標内容を入力します。漠然とした目標でもOKです。</p>
+            <div class="bg-primary-50 rounded-xl p-4 border border-primary-200">
+              <p class="text-sm text-primary-800">
+                <strong>例：</strong>「もっと自信を持ちたい」「仕事のストレスを減らしたい」など
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-line"></div>
+          <div class="step-dot absolute left-0 top-0">3</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">AIに提案をもらう</h3>
+            <p class="text-gray-600 mb-4">AIボタンをクリックすると、以下を提案してくれます。</p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>SMARTゴールへの変換（具体的・測定可能・達成可能・関連性・期限付き）</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>中間目標（マイルストーン）</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <svg class="w-5 h-5 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span>達成に向けたアクションプラン</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="relative pl-16">
+          <div class="step-dot absolute left-0 top-0">4</div>
+          <div class="bg-gray-50 rounded-2xl p-6">
+            <h3 class="text-xl font-bold mb-3">進捗を記録</h3>
+            <p class="text-gray-600">セッションごとに進捗（%）を更新。ダッシュボードで全体の進捗状況を確認できます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section id="tips" class="py-20 bg-primary-50 scroll-mt-24">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="text-center mb-12 fade-up">
+        <span class="inline-block bg-primary text-white px-4 py-1 rounded-full text-sm font-medium mb-4">TIPS</span>
+        <h2 class="text-3xl font-bold mb-4">活用のコツ</h2>
+        <p class="text-gray-600">かうたすをもっと便利に使うために</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6 fade-up">
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">毎朝ロビーをチェック</h3>
+          <p class="text-gray-600 text-sm">ロビーで今日の予定とタスクを確認してから1日をスタートしましょう。</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">金額を入れておく</h3>
+          <p class="text-gray-600 text-sm">予定に金額を設定しておくと、実績に自動で反映されます。</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">タスクを活用</h3>
+          <p class="text-gray-600 text-sm">「フォローアップ連絡」「資料準備」などもタスクに登録してもれを防止。</p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 shadow-sm">
+          <div class="w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center mb-4">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-lg mb-2">スマホでも使える</h3>
+          <p class="text-gray-600 text-sm">外出先でもスマホから予定確認やカルテ入力が可能です。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 bg-gradient-to-br from-primary to-primary-dark">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+        さっそく使ってみよう
+      </h2>
+      <p class="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
+        登録は無料。すべての機能をお試しいただけます。
+      </p>
+      <a href="https://cautas.pages.dev" class="inline-block bg-white text-primary-dark px-10 py-4 rounded-2xl font-bold text-lg hover:shadow-xl transition transform hover:-translate-y-1">
+        無料で始める
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-10 mb-12">
+        <div class="md:col-span-2">
+          <h3 class="text-2xl font-bold text-primary-light mb-4">かうたす</h3>
+          <p class="text-gray-400 leading-relaxed mb-6">
+            カウンセラー・コーチのための業務管理アプリ。
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">サービス</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="features.html" class="hover:text-primary-light transition">機能</a></li>
+            <li><a href="guide.html" class="hover:text-primary-light transition">使い方</a></li>
+            <li><a href="index.html#pricing" class="hover:text-primary-light transition">料金</a></li>
+            <li><a href="index.html#faq" class="hover:text-primary-light transition">FAQ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold mb-4">アプリ</h4>
+          <ul class="space-y-3 text-gray-400">
+            <li><a href="https://cautas.pages.dev" class="hover:text-primary-light transition">ログイン</a></li>
+            <li><a href="https://cautas.pages.dev" class="hover:text-primary-light transition">新規登録</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 かうたす（Cautas）. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
