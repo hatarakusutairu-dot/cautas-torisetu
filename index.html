@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>かうたす（Cautas） - カウンセラー・コーチのための業務管理アプリ</title>
-  <meta name="description" content="かうたすは、カウンセラー・コーチ向けの業務管理アプリです。クライアント管理、カルテ記録、スケジュール管理をAIがサポートします。">
+  <title>かうたす（Cautas） - カウンセラー・コーチのための業務管理アプリ 使い方ガイド</title>
+  <meta name="description" content="かうたすの使い方ガイド。カウンセラー・コーチ向け業務管理アプリの全機能を詳しく解説。クライアント管理、カルテ記録、スケジュール管理をマスターしよう。">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,6 +79,39 @@
       33% { transform: translate(30px, -50px) scale(1.1); }
       66% { transform: translate(-20px, 20px) scale(0.9); }
     }
+    .guide-section {
+      scroll-margin-top: 100px;
+    }
+    .step-number {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .menu-item {
+      transition: all 0.2s ease;
+    }
+    .menu-item:hover {
+      background: rgba(16, 185, 129, 0.1);
+      transform: translateX(4px);
+    }
+    .tip-box {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border-left: 4px solid #f59e0b;
+    }
+    .info-box {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      border-left: 4px solid #3b82f6;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body class="font-sans text-gray-800 overflow-x-hidden">
@@ -89,20 +122,19 @@
         かうたす
       </a>
       <div class="hidden md:flex items-center gap-6">
-        <a href="#features" class="text-gray-600 hover:text-primary transition">機能</a>
-        <a href="#benefits" class="text-gray-600 hover:text-primary transition">特徴</a>
-        <a href="#pricing" class="text-gray-600 hover:text-primary transition">料金</a>
+        <a href="#overview" class="text-gray-600 hover:text-primary transition">概要</a>
+        <a href="#getting-started" class="text-gray-600 hover:text-primary transition">はじめ方</a>
+        <a href="#features-guide" class="text-gray-600 hover:text-primary transition">機能ガイド</a>
         <a href="#faq" class="text-gray-600 hover:text-primary transition">FAQ</a>
       </div>
       <a href="https://cautas.pages.dev" class="btn-primary text-white px-6 py-2 rounded-full font-medium">
-        無料で始める
+        アプリを開く
       </a>
     </nav>
   </header>
 
   <!-- ヒーローセクション -->
   <section class="hero-gradient min-h-screen pt-24 pb-16 relative overflow-hidden">
-    <!-- 装飾用ブロブ -->
     <div class="blob w-96 h-96 bg-primary-light top-20 -left-48"></div>
     <div class="blob w-80 h-80 bg-emerald-200 bottom-20 right-0"></div>
 
@@ -124,8 +156,8 @@
             <a href="https://cautas.pages.dev" class="btn-primary text-white px-8 py-4 rounded-2xl font-medium text-lg text-center">
               無料で始める
             </a>
-            <a href="#features" class="bg-white text-primary-dark px-8 py-4 rounded-2xl font-medium text-lg border-2 border-primary/20 hover:border-primary transition text-center">
-              機能を見る
+            <a href="#getting-started" class="bg-white text-primary-dark px-8 py-4 rounded-2xl font-medium text-lg border-2 border-primary/20 hover:border-primary transition text-center">
+              使い方を見る
             </a>
           </div>
         </div>
@@ -147,252 +179,1028 @@
     </div>
   </section>
 
-  <!-- 課題提起セクション -->
-  <section class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">こんなお悩み、ありませんか？</h2>
-        <p class="text-gray-600">多くのカウンセラー・コーチが抱える課題</p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass-dark rounded-3xl p-8 text-center">
-          <div class="w-16 h-16 bg-red-100 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-            <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">情報がバラバラ</h3>
-          <p class="text-gray-600">クライアント情報、予約、カルテが別々のツールに散らばっている</p>
-        </div>
-        <div class="glass-dark rounded-3xl p-8 text-center">
-          <div class="w-16 h-16 bg-orange-100 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">事務作業に追われる</h3>
-          <p class="text-gray-600">請求書作成やスケジュール調整に時間を取られ、本業に集中できない</p>
-        </div>
-        <div class="glass-dark rounded-3xl p-8 text-center">
-          <div class="w-16 h-16 bg-yellow-100 rounded-2xl mx-auto mb-6 flex items-center justify-center">
-            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">目標設定が難しい</h3>
-          <p class="text-gray-600">クライアントの目標を効果的に設計・管理する方法がわからない</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 機能紹介セクション -->
-  <section id="features" class="py-20 gradient-bg">
+  <!-- アプリ概要セクション -->
+  <section id="overview" class="py-20 bg-white guide-section">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-16">
         <span class="inline-block bg-primary/20 text-primary-dark px-4 py-2 rounded-full text-sm font-medium mb-4">
-          機能紹介
+          アプリ概要
         </span>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">すべてがここに</h2>
-        <p class="text-gray-600">業務に必要な機能をオールインワンで提供</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">かうたすでできること</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">
+          カウンセラー・コーチの業務に必要な機能をすべて搭載。<br>
+          複数のツールを使い分ける必要はもうありません。
+        </p>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- カレンダー -->
-        <div class="feature-card glass rounded-3xl p-6 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary/10 rounded-2xl mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2">カレンダー</h3>
-          <p class="text-gray-600 text-sm">繰り返し予定にも対応した直感的なスケジュール管理</p>
-        </div>
-        <!-- クライアント管理 -->
-        <div class="feature-card glass rounded-3xl p-6 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary/10 rounded-2xl mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2">クライアント管理</h3>
-          <p class="text-gray-600 text-sm">連絡先から履歴まで、クライアント情報を一元管理</p>
-        </div>
-        <!-- カルテ記録 -->
-        <div class="feature-card glass rounded-3xl p-6 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary/10 rounded-2xl mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2">カルテ記録</h3>
-          <p class="text-gray-600 text-sm">セッション内容を簡単に記録・振り返り</p>
-        </div>
-        <!-- 目標管理 -->
-        <div class="feature-card glass rounded-3xl p-6 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary/10 rounded-2xl mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2">目標管理</h3>
-          <p class="text-gray-600 text-sm">AI支援付きの目標設計・進捗管理</p>
-        </div>
-        <!-- タスク管理 -->
-        <div class="feature-card glass rounded-3xl p-6 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary/10 rounded-2xl mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2">タスク管理</h3>
-          <p class="text-gray-600 text-sm">やるべきことを整理してもれなく実行</p>
-        </div>
-        <!-- 実績管理 -->
-        <div class="feature-card glass rounded-3xl p-6 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary/10 rounded-2xl mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2">実績管理</h3>
-          <p class="text-gray-600 text-sm">セッション数や収益を可視化・分析</p>
-        </div>
-        <!-- 請求書管理 -->
-        <div class="feature-card glass rounded-3xl p-6 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary/10 rounded-2xl mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2">請求書管理</h3>
-          <p class="text-gray-600 text-sm">請求書の作成・送付・管理をスムーズに</p>
-        </div>
-        <!-- カウンセラー名鑑 -->
-        <div class="feature-card glass rounded-3xl p-6 transition-all duration-300">
-          <div class="w-14 h-14 bg-primary/10 rounded-2xl mb-4 flex items-center justify-center">
-            <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-bold mb-2">カウンセラー名鑑</h3>
-          <p class="text-gray-600 text-sm">プロフィールを公開して新規クライアントを獲得</p>
+
+      <!-- メニュー構成 -->
+      <div class="glass rounded-3xl p-8 mb-12">
+        <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+          <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          メニュー構成
+        </h3>
+        <div class="grid md:grid-cols-3 gap-4">
+          <a href="#guide-lobby" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">ロビー</div>
+              <div class="text-sm text-gray-500">ダッシュボード・今日の予定</div>
+            </div>
+          </a>
+          <a href="#guide-calendar" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">カレンダー</div>
+              <div class="text-sm text-gray-500">スケジュール管理</div>
+            </div>
+          </a>
+          <a href="#guide-task" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">タスク</div>
+              <div class="text-sm text-gray-500">ToDo管理</div>
+            </div>
+          </a>
+          <a href="#guide-client" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">クライアント</div>
+              <div class="text-sm text-gray-500">顧客情報管理</div>
+            </div>
+          </a>
+          <a href="#guide-company" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">企業</div>
+              <div class="text-sm text-gray-500">法人クライアント管理</div>
+            </div>
+          </a>
+          <a href="#guide-karte" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">カルテ</div>
+              <div class="text-sm text-gray-500">セッション記録</div>
+            </div>
+          </a>
+          <a href="#guide-goal" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">目標</div>
+              <div class="text-sm text-gray-500">目標設定・進捗管理</div>
+            </div>
+          </a>
+          <a href="#guide-performance" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">実績</div>
+              <div class="text-sm text-gray-500">売上・セッション分析</div>
+            </div>
+          </a>
+          <a href="#guide-invoice" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">請求書</div>
+              <div class="text-sm text-gray-500">請求書作成・管理</div>
+            </div>
+          </a>
+          <a href="#guide-directory" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">カウンセラー名鑑</div>
+              <div class="text-sm text-gray-500">プロフィール公開</div>
+            </div>
+          </a>
+          <a href="#guide-directory" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">講師名鑑</div>
+              <div class="text-sm text-gray-500">講師プロフィール公開</div>
+            </div>
+          </a>
+          <a href="#guide-settings" class="menu-item flex items-center gap-3 p-4 rounded-xl cursor-pointer">
+            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+            </div>
+            <div>
+              <div class="font-medium">設定</div>
+              <div class="text-sm text-gray-500">アカウント・表示設定</div>
+            </div>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 特徴・強みセクション -->
-  <section id="benefits" class="py-20 bg-white">
+  <!-- はじめ方セクション -->
+  <section id="getting-started" class="py-20 gradient-bg guide-section">
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-16">
         <span class="inline-block bg-primary/20 text-primary-dark px-4 py-2 rounded-full text-sm font-medium mb-4">
-          かうたすの強み
+          はじめ方
         </span>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">選ばれる理由</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">3ステップで始めよう</h2>
       </div>
+
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- AI機能 -->
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">AI機能搭載</h3>
-          <p class="text-gray-600">
-            目標設計の支援、セッション分析など、<br>
-            AIがあなたの業務をインテリジェントにサポート
+        <div class="glass rounded-3xl p-8 text-center">
+          <div class="step-number mx-auto mb-6 text-xl">1</div>
+          <h3 class="text-xl font-bold mb-4">アカウント登録</h3>
+          <p class="text-gray-600 mb-4">
+            メールアドレスで簡単登録。<br>
+            Googleアカウントでも登録可能です。
           </p>
+          <a href="https://cautas.pages.dev" class="text-primary font-medium hover:underline">
+            今すぐ登録 →
+          </a>
         </div>
-        <!-- シンプルUI -->
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">シンプルで直感的</h3>
-          <p class="text-gray-600">
-            複雑な設定は不要。<br>
-            すぐに使い始められる洗練されたインターフェース
+        <div class="glass rounded-3xl p-8 text-center">
+          <div class="step-number mx-auto mb-6 text-xl">2</div>
+          <h3 class="text-xl font-bold mb-4">クライアントを登録</h3>
+          <p class="text-gray-600 mb-4">
+            まずはクライアント情報を登録。<br>
+            名前と連絡先だけでOKです。
           </p>
+          <a href="#guide-client" class="text-primary font-medium hover:underline">
+            登録方法を見る →
+          </a>
         </div>
-        <!-- データ一元管理 -->
-        <div class="text-center">
-          <div class="w-20 h-20 bg-gradient-to-br from-primary to-primary-dark rounded-3xl mx-auto mb-6 flex items-center justify-center shadow-lg">
-            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold mb-3">データ一元管理</h3>
-          <p class="text-gray-600">
-            すべての情報をひとつの場所に。<br>
-            ツールを行き来する手間から解放されます
+        <div class="glass rounded-3xl p-8 text-center">
+          <div class="step-number mx-auto mb-6 text-xl">3</div>
+          <h3 class="text-xl font-bold mb-4">予定を追加</h3>
+          <p class="text-gray-600 mb-4">
+            セッションの予定を登録して<br>
+            スケジュール管理を始めましょう。
           </p>
+          <a href="#guide-calendar" class="text-primary font-medium hover:underline">
+            カレンダーの使い方 →
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 料金プランセクション -->
-  <section id="pricing" class="py-20 gradient-bg">
+  <!-- 機能ガイドセクション -->
+  <section id="features-guide" class="py-20 bg-white guide-section">
     <div class="max-w-4xl mx-auto px-4">
       <div class="text-center mb-16">
         <span class="inline-block bg-primary/20 text-primary-dark px-4 py-2 rounded-full text-sm font-medium mb-4">
-          料金プラン
+          機能ガイド
         </span>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">シンプルな料金体系</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">各機能の使い方</h2>
+        <p class="text-gray-600">クリックして詳細を確認</p>
       </div>
-      <div class="glass rounded-3xl p-8 md:p-12 text-center max-w-lg mx-auto">
-        <span class="inline-block bg-primary text-white px-4 py-1 rounded-full text-sm font-medium mb-6">
-          現在無料
-        </span>
-        <div class="text-5xl font-bold text-primary-dark mb-2">¥0</div>
-        <p class="text-gray-600 mb-8">すべての機能を無料でご利用いただけます</p>
-        <ul class="text-left space-y-4 mb-8">
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+
+      <!-- ロビー（ダッシュボード） -->
+      <div id="guide-lobby" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group" open>
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">ロビー（ダッシュボード）</h3>
+                <p class="text-gray-600">今日の予定と全体サマリーを確認</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-            <span>カレンダー・スケジュール管理</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              ロビーはアプリを開いたときに最初に表示されるホーム画面です。今日の業務に必要な情報がひと目でわかります。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> クイックアクション
+              </h4>
+              <p class="text-gray-600">画面上部の3つのボタンから、よく使う操作にすぐアクセスできます。</p>
+              <div class="grid sm:grid-cols-3 gap-3">
+                <div class="bg-white rounded-xl p-4 border border-gray-100">
+                  <div class="font-medium mb-1">新規予定を追加</div>
+                  <div class="text-sm text-gray-500">セッションの予約を登録</div>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-gray-100">
+                  <div class="font-medium mb-1">カルテ作成</div>
+                  <div class="text-sm text-gray-500">セッション記録を作成</div>
+                </div>
+                <div class="bg-white rounded-xl p-4 border border-gray-100">
+                  <div class="font-medium mb-1">タスク追加</div>
+                  <div class="text-sm text-gray-500">やることリストに追加</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 統計サマリー
+              </h4>
+              <p class="text-gray-600">本日のセッション数、売上、完了タスク数がカードで表示されます。</p>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 次の予定まで
+              </h4>
+              <p class="text-gray-600">次の予定までのカウントダウンが表示されます。準備のタイミングがわかりやすくなります。</p>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 今日のスケジュール
+              </h4>
+              <p class="text-gray-600">今日の予定が時系列で表示されます。各予定には以下の情報が含まれます：</p>
+              <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+                <li>時刻とタイトル</li>
+                <li>クライアント名</li>
+                <li>ステータス（完了/キャンセルなど）</li>
+                <li>確認・削除ボタン</li>
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 今日のタスク
+              </h4>
+              <p class="text-gray-600">今日やるべきタスクがチェックリスト形式で表示されます。優先度（高・中・低）のバッジ付き。</p>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> AIインサイト
+              </h4>
+              <p class="text-gray-600">業種や分野に合わせたAIからのアドバイスやヒントが表示されます。設定で業種を選択できます。</p>
+            </div>
+
+            <div class="tip-box rounded-xl p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <div>
+                  <div class="font-medium text-yellow-800">ヒント</div>
+                  <div class="text-yellow-700 text-sm">ダッシュボードの表示項目はカスタマイズ可能。ドラッグ&ドロップで並び替えたり、不要な項目を非表示にできます。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- カレンダー -->
+      <div id="guide-calendar" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">カレンダー</h3>
+                <p class="text-gray-600">スケジュール管理・繰り返し予定</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-            <span>クライアント・カルテ管理</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              セッションの予定を視覚的に管理できるカレンダー機能です。月表示・週表示・日表示に対応。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 予定の追加方法
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">1</div>
+                  <div>カレンダー上の日付をクリック、または「新規予定」ボタンをクリック</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">2</div>
+                  <div>タイトル、日付、開始・終了時刻を入力（必須）</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">3</div>
+                  <div>クライアントを選択、金額やメモを入力（任意）</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">4</div>
+                  <div>「保存」をクリックして完了</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 入力項目
+              </h4>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-gray-200">
+                      <th class="text-left py-2 pr-4">項目</th>
+                      <th class="text-left py-2 pr-4">必須</th>
+                      <th class="text-left py-2">説明</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-gray-600">
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">タイトル</td>
+                      <td class="py-2 pr-4"><span class="text-red-500">必須</span></td>
+                      <td class="py-2">予定の名前（例：カウンセリング）</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">日付</td>
+                      <td class="py-2 pr-4"><span class="text-red-500">必須</span></td>
+                      <td class="py-2">予定の日付</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">開始時刻</td>
+                      <td class="py-2 pr-4"><span class="text-red-500">必須</span></td>
+                      <td class="py-2">開始時間</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">終了時刻</td>
+                      <td class="py-2 pr-4"><span class="text-red-500">必須</span></td>
+                      <td class="py-2">終了時間</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">金額</td>
+                      <td class="py-2 pr-4">任意</td>
+                      <td class="py-2">セッション料金（実績に反映）</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">クライアント</td>
+                      <td class="py-2 pr-4">任意</td>
+                      <td class="py-2">登録済みクライアントから選択</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-4 font-medium">メモ</td>
+                      <td class="py-2 pr-4">任意</td>
+                      <td class="py-2">備考・準備事項など</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 繰り返し予定
+              </h4>
+              <p class="text-gray-600">定期的なセッションは繰り返し設定が可能です。</p>
+              <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+                <li>毎日 / 毎週 / 隔週 / 毎月</li>
+                <li>終了日の設定も可能</li>
+              </ul>
+            </div>
+
+            <div class="info-box rounded-xl p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <div class="font-medium text-blue-800">ポイント</div>
+                  <div class="text-blue-700 text-sm">予定にクライアントと金額を設定しておくと、実績管理に自動で反映されます。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- タスク -->
+      <div id="guide-task" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">タスク</h3>
+                <p class="text-gray-600">やることリスト・優先度管理</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-            <span>AI目標設計支援</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              業務のタスクを管理するToDoリスト機能です。優先度や期限を設定して、やるべきことを整理できます。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> タスクの追加
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">1</div>
+                  <div>「タスク追加」ボタンをクリック</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">2</div>
+                  <div>タスク名を入力（必須）</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">3</div>
+                  <div>優先度（低/中/高）を選択</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">4</div>
+                  <div>期限、関連クライアント、詳細を入力（任意）</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 優先度バッジ
+              </h4>
+              <div class="flex gap-4">
+                <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">高</span>
+                <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">中</span>
+                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">低</span>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> タスクの完了
+              </h4>
+              <p class="text-gray-600">タスク横のチェックボックスをクリックすると完了になります。完了したタスクは統計に反映されます。</p>
+            </div>
+
+            <div class="tip-box rounded-xl p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <div>
+                  <div class="font-medium text-yellow-800">活用例</div>
+                  <div class="text-yellow-700 text-sm">「資料準備」「フォローアップ連絡」などをクライアントに紐づけて管理すると便利です。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- クライアント -->
+      <div id="guide-client" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">クライアント</h3>
+                <p class="text-gray-600">顧客情報・履歴管理</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-            <span>請求書管理</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              クライアント（顧客）の情報を管理する機能です。連絡先、セッション履歴、カルテなど、クライアントに関するすべての情報にアクセスできます。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> クライアントの登録
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">1</div>
+                  <div>「新規クライアント」ボタンをクリック</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">2</div>
+                  <div>名前を入力（必須）</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">3</div>
+                  <div>連絡先（メール・電話）を入力</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">4</div>
+                  <div>その他の情報（所属企業、メモなど）を入力</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> クライアント詳細画面
+              </h4>
+              <p class="text-gray-600">クライアントをクリックすると詳細画面が開きます。以下の情報が確認できます：</p>
+              <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+                <li>基本情報（名前、連絡先、所属など）</li>
+                <li>セッション履歴</li>
+                <li>カルテ一覧</li>
+                <li>目標の進捗</li>
+                <li>請求履歴</li>
+              </ul>
+            </div>
+
+            <div class="info-box rounded-xl p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <div class="font-medium text-blue-800">便利な使い方</div>
+                  <div class="text-blue-700 text-sm">クライアントを登録しておくと、予定・カルテ・請求書などと連携でき、情報が一元管理されます。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 企業 -->
+      <div id="guide-company" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">企業</h3>
+                <p class="text-gray-600">法人クライアント管理</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-            <span>カウンセラー名鑑への掲載</span>
-          </li>
-        </ul>
-        <a href="https://cautas.pages.dev" class="btn-primary text-white px-8 py-4 rounded-2xl font-medium text-lg inline-block w-full">
-          今すぐ始める
-        </a>
-        <p class="text-sm text-gray-500 mt-4">
-          ※将来的に有料プランを導入予定です
-        </p>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              法人（企業）クライアントを管理する機能です。企業研修や法人契約のカウンセリングを行う場合に活用できます。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 企業と個人クライアントの関係
+              </h4>
+              <p class="text-gray-600">企業を登録し、その企業に所属する個人クライアントを紐づけることができます。</p>
+              <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+                <li>企業単位での売上集計</li>
+                <li>所属クライアントの一覧表示</li>
+                <li>企業への一括請求</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- カルテ -->
+      <div id="guide-karte" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">カルテ</h3>
+                <p class="text-gray-600">セッション記録・所見管理</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              セッションの記録を残すカルテ機能です。クライアントごとにセッション内容を記録し、振り返りに活用できます。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> カルテの作成
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">1</div>
+                  <div>「カルテ作成」ボタンをクリック</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">2</div>
+                  <div>クライアントを選択（必須）</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">3</div>
+                  <div>セッション日を入力（必須）</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">4</div>
+                  <div>主訴・相談内容を入力（必須）</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">5</div>
+                  <div>セッション内容、所見・アセスメントを入力</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> カルテの入力項目
+              </h4>
+              <div class="overflow-x-auto">
+                <table class="w-full text-sm">
+                  <thead>
+                    <tr class="border-b border-gray-200">
+                      <th class="text-left py-2 pr-4">項目</th>
+                      <th class="text-left py-2 pr-4">必須</th>
+                      <th class="text-left py-2">説明</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-gray-600">
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">クライアント</td>
+                      <td class="py-2 pr-4"><span class="text-red-500">必須</span></td>
+                      <td class="py-2">どのクライアントのカルテか</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">セッション日</td>
+                      <td class="py-2 pr-4"><span class="text-red-500">必須</span></td>
+                      <td class="py-2">セッションを行った日付</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">主訴・相談内容</td>
+                      <td class="py-2 pr-4"><span class="text-red-500">必須</span></td>
+                      <td class="py-2">クライアントが相談したいこと</td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                      <td class="py-2 pr-4 font-medium">セッション内容</td>
+                      <td class="py-2 pr-4">任意</td>
+                      <td class="py-2">実際に行った内容の記録</td>
+                    </tr>
+                    <tr>
+                      <td class="py-2 pr-4 font-medium">所見・アセスメント</td>
+                      <td class="py-2 pr-4">任意</td>
+                      <td class="py-2">カウンセラーとしての評価・見立て</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="tip-box rounded-xl p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                </svg>
+                <div>
+                  <div class="font-medium text-yellow-800">ヒント</div>
+                  <div class="text-yellow-700 text-sm">カルテはセッション終了後すぐに記録するのがおすすめ。詳細な内容を忘れないうちに残せます。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 目標 -->
+      <div id="guide-goal" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">目標</h3>
+                <p class="text-gray-600">目標設定・進捗管理（AI支援付き）</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              クライアントの目標を設定・管理する機能です。AIが目標設計をサポートし、効果的なゴール設定を支援します。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> AI目標設計支援
+              </h4>
+              <p class="text-gray-600">目標を入力すると、AIが以下をサポートします：</p>
+              <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+                <li>SMARTゴールへの変換提案</li>
+                <li>中間目標（マイルストーン）の提案</li>
+                <li>達成に向けたアクションプランの提案</li>
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 進捗管理
+              </h4>
+              <p class="text-gray-600">目標の進捗をパーセンテージで記録できます。ダッシュボードで全体の進捗状況を確認できます。</p>
+            </div>
+
+            <div class="info-box rounded-xl p-4">
+              <div class="flex items-start gap-3">
+                <svg class="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <div>
+                  <div class="font-medium text-blue-800">AI活用のコツ</div>
+                  <div class="text-blue-700 text-sm">漠然とした目標でもまず入力してみましょう。AIが具体的で測定可能な形に整理する手助けをします。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 実績 -->
+      <div id="guide-performance" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">実績</h3>
+                <p class="text-gray-600">売上・セッション数の分析</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              セッション数や売上を可視化・分析する機能です。日・週・月・年単位で実績を確認できます。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 確認できる指標
+              </h4>
+              <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+                <li>総セッション数</li>
+                <li>売上金額（合計・平均）</li>
+                <li>クライアント数</li>
+                <li>期間別の推移グラフ</li>
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> データの反映
+              </h4>
+              <p class="text-gray-600">カレンダーで登録した予定（金額入力済み）が自動で実績に反映されます。手動での入力は不要です。</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 請求書 -->
+      <div id="guide-invoice" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">請求書</h3>
+                <p class="text-gray-600">請求書の作成・管理</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              請求書を作成・管理する機能です。クライアントや企業への請求をスムーズに行えます。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 請求書の作成
+              </h4>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">1</div>
+                  <div>「新規請求書」ボタンをクリック</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">2</div>
+                  <div>請求先（クライアントまたは企業）を選択</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">3</div>
+                  <div>項目と金額を入力</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">4</div>
+                  <div>発行日・支払期限を設定</div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="step-number text-sm">5</div>
+                  <div>PDF出力または直接送付</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> ステータス管理
+              </h4>
+              <div class="flex flex-wrap gap-3">
+                <span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">下書き</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">発行済み</span>
+                <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm">支払待ち</span>
+                <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">支払完了</span>
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- カウンセラー名鑑・講師名鑑 -->
+      <div id="guide-directory" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">カウンセラー名鑑・講師名鑑</h3>
+                <p class="text-gray-600">プロフィール公開・集客</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              あなたのプロフィールを公開して、新規クライアントを獲得できる機能です。カウンセラー名鑑と講師名鑑の2種類があります。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 掲載できる情報
+              </h4>
+              <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+                <li>プロフィール写真</li>
+                <li>自己紹介・経歴</li>
+                <li>専門分野・得意領域</li>
+                <li>資格・認定</li>
+                <li>料金・メニュー</li>
+                <li>連絡先・予約方法</li>
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 公開設定
+              </h4>
+              <p class="text-gray-600">プロフィールは設定から公開/非公開を切り替えられます。準備ができてから公開しましょう。</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- 設定 -->
+      <div id="guide-settings" class="mb-12 guide-section">
+        <details class="glass-dark rounded-3xl overflow-hidden group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold">設定</h3>
+                <p class="text-gray-600">アカウント・表示設定</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <div class="p-6 pt-0 space-y-6">
+            <p class="text-gray-700">
+              アプリの各種設定を行う画面です。
+            </p>
+
+            <div class="space-y-4">
+              <h4 class="font-bold text-lg flex items-center gap-2">
+                <span class="text-primary">■</span> 設定できる項目
+              </h4>
+              <ul class="list-disc list-inside text-gray-600 space-y-1 ml-4">
+                <li>プロフィール情報の編集</li>
+                <li>AIインサイトの業種設定</li>
+                <li>ダッシュボードのカスタマイズ</li>
+                <li>通知設定</li>
+                <li>データのエクスポート</li>
+                <li>アカウント管理</li>
+              </ul>
+            </div>
+          </div>
+        </details>
       </div>
     </div>
   </section>
 
   <!-- FAQセクション -->
-  <section id="faq" class="py-20 bg-white">
+  <section id="faq" class="py-20 gradient-bg guide-section">
     <div class="max-w-3xl mx-auto px-4">
       <div class="text-center mb-16">
         <span class="inline-block bg-primary/20 text-primary-dark px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -401,7 +1209,7 @@
         <h2 class="text-3xl md:text-4xl font-bold mb-4">よくある質問</h2>
       </div>
       <div class="space-y-4">
-        <details class="glass-dark rounded-2xl p-6 group">
+        <details class="glass rounded-2xl p-6 group">
           <summary class="flex items-center justify-between cursor-pointer font-medium text-lg">
             無料で使えますか？
             <svg class="w-5 h-5 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -412,7 +1220,7 @@
             はい、現在すべての機能を無料でご利用いただけます。将来的に有料プランを導入予定ですが、既存ユーザーには特別な優待を予定しています。
           </p>
         </details>
-        <details class="glass-dark rounded-2xl p-6 group">
+        <details class="glass rounded-2xl p-6 group">
           <summary class="flex items-center justify-between cursor-pointer font-medium text-lg">
             どんなデバイスで使えますか？
             <svg class="w-5 h-5 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -420,10 +1228,10 @@
             </svg>
           </summary>
           <p class="mt-4 text-gray-600">
-            Webブラウザがあればどのデバイスでもご利用いただけます。PC、タブレット、スマートフォンに対応しています。
+            Webブラウザがあればどのデバイスでもご利用いただけます。PC、タブレット、スマートフォンに対応しています。スマホでは左端からスワイプでメニューを開けます。
           </p>
         </details>
-        <details class="glass-dark rounded-2xl p-6 group">
+        <details class="glass rounded-2xl p-6 group">
           <summary class="flex items-center justify-between cursor-pointer font-medium text-lg">
             データのセキュリティは大丈夫ですか？
             <svg class="w-5 h-5 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -434,7 +1242,7 @@
             データは暗号化して安全に保管しています。クライアントの個人情報を適切に管理し、プライバシーを最優先に考えて設計しています。
           </p>
         </details>
-        <details class="glass-dark rounded-2xl p-6 group">
+        <details class="glass rounded-2xl p-6 group">
           <summary class="flex items-center justify-between cursor-pointer font-medium text-lg">
             AI機能はどのように使えますか？
             <svg class="w-5 h-5 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -442,18 +1250,29 @@
             </svg>
           </summary>
           <p class="mt-4 text-gray-600">
-            目標管理機能でAIが目標設計をサポートします。クライアントの状況に応じた目標の提案や、進捗の分析などを行います。
+            目標管理機能でAIが目標設計をサポートします。また、ダッシュボードのAIインサイトで業種に合わせたアドバイスを受け取れます。設定で業種を選択してください。
           </p>
         </details>
-        <details class="glass-dark rounded-2xl p-6 group">
+        <details class="glass rounded-2xl p-6 group">
           <summary class="flex items-center justify-between cursor-pointer font-medium text-lg">
-            サポートはありますか？
+            クライアントを先に登録しないと使えませんか？
             <svg class="w-5 h-5 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </summary>
           <p class="mt-4 text-gray-600">
-            お問い合わせフォームからいつでもご連絡いただけます。使い方のご質問や機能のリクエストなど、お気軽にお寄せください。
+            いいえ、クライアント登録は任意です。カレンダーやタスクはクライアントなしでも使えます。ただし、クライアントを登録するとカルテや請求書と連携できて便利です。
+          </p>
+        </details>
+        <details class="glass rounded-2xl p-6 group">
+          <summary class="flex items-center justify-between cursor-pointer font-medium text-lg">
+            データのバックアップはできますか？
+            <svg class="w-5 h-5 text-primary transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
+          <p class="mt-4 text-gray-600">
+            設定画面からデータのエクスポートが可能です。定期的なバックアップをおすすめします。
           </p>
         </details>
       </div>
@@ -489,11 +1308,11 @@
           </p>
         </div>
         <div>
-          <h4 class="font-bold mb-4">リンク</h4>
+          <h4 class="font-bold mb-4">ガイド</h4>
           <ul class="space-y-2 text-gray-400">
-            <li><a href="#features" class="hover:text-primary-light transition">機能</a></li>
-            <li><a href="#benefits" class="hover:text-primary-light transition">特徴</a></li>
-            <li><a href="#pricing" class="hover:text-primary-light transition">料金</a></li>
+            <li><a href="#overview" class="hover:text-primary-light transition">概要</a></li>
+            <li><a href="#getting-started" class="hover:text-primary-light transition">はじめ方</a></li>
+            <li><a href="#features-guide" class="hover:text-primary-light transition">機能ガイド</a></li>
             <li><a href="#faq" class="hover:text-primary-light transition">FAQ</a></li>
           </ul>
         </div>
